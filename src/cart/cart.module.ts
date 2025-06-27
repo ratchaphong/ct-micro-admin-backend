@@ -2,11 +2,11 @@
 import { Module } from '@nestjs/common';
 import { CartService } from './cart.service';
 import { CartController } from './cart.controller';
-import { ClientProxyModule } from 'src/client-proxy/client-proxy.module';
 import { JwtStrategy } from './jwt.strategy';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { CartCronService } from './cart-cron.service';
+import { ClientProxyModule } from 'src/client-proxy/client-proxy.module';
 
 @Module({
   imports: [
@@ -20,5 +20,6 @@ import { CartCronService } from './cart-cron.service';
   ],
   controllers: [CartController],
   providers: [CartService, CartCronService, JwtStrategy],
+  exports: [CartService],
 })
 export class CartModule {}

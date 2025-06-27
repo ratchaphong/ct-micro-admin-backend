@@ -26,3 +26,14 @@ model CartItem {
 
   @@schema("cart")
 }
+
+model Order {
+  id         String   @id @default(uuid())
+  userId     String
+  productId  String
+  totalPrice Float
+  createdAt  DateTime @default(now())
+  status     String   @default("COMPLETED")
+
+  @@schema("cart")
+}
